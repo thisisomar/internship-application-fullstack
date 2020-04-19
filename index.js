@@ -5,7 +5,12 @@ addEventListener('fetch', event => {
 class TitleHandler {
   element(element) {
     element.setInnerContent("Omar's Internship Challenge")
-    console.log(`Incoming element: ${element.tagName}`)
+  }
+}
+
+class HeadingHandler {
+  element(element) {
+    element.prepend("Omar's Internship Challenge")
   }
 }
 
@@ -20,7 +25,6 @@ class URLHandler {
   element(element) {
     element.setInnerContent("Check out my personal website");
     element.setAttribute('href', 'https://www.omarabusamra.com')
-    console.log(`Incoming element: ${element.tagName}`)
   }
 }
 
@@ -69,7 +73,7 @@ async function handleRequest(request) {
   
   let rewriteContent = new HTMLRewriter()
     .on('title', new TitleHandler())
-    .on('h1#title', new TitleHandler())
+    .on('h1#title', new HeadingHandler())
     .on('p#description', new DescriptionHandler())
     .on('a#url', new URLHandler())
     .transform(originalResponse)
