@@ -1,6 +1,12 @@
-name = "{{project-name}}"
+name = "internship-challenge"
 type = "javascript"
-account_id = ""
+account_id = "b254707b7d0f9de8d997846f457a3eb8"
 workers_dev = true
 route = ""
 zone_id = ""
+
+[env.prod]
+name="internship-challenge-prod"
+
+[env.dev]
+name="internship-challenge-dev"
